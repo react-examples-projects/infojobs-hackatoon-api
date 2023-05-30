@@ -6,12 +6,6 @@ const SERVER = {
   DEV: process.env.DEV || false,
   API: {
     IS_PRODUCTION: process.env.NODE_ENV === "production",
-    ALLOWED_DOMAINS: [
-      "http://localhost:5173",
-      "http://127.0.0.1:5173",
-      "https://infopruebas.vercel.app/",
-      "https://infopruebas.vercel.app",
-    ],
     RATE_LIMITS: {
       windowMs: 10 * 60 * 1000, // 10 minutes
       max: 200, // limit each IP to 200 requests per windowMs
