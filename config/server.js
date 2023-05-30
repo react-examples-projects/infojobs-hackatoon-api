@@ -15,7 +15,7 @@ async function startServer(app, routers) {
     });
     wrapServerErrors(app);
 
-    const server = app.listen(PORT, async () => {
+    const server = app.listen(PORT, "0.0.0.0", async () => {
       message.success(`Server has started in http://localhost:${PORT}/`);
       process.on("SIGINT", () => closeDb(server));
       process.on("SIGTERM", () => closeDb(server));
