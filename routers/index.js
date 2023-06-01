@@ -19,7 +19,7 @@ router.post("/", async (req = express.Request, res = express.response) => {
     }
 
     const result = await openai.createChatCompletion({
-      model: "gpt-3.5-turbo",
+      model: "gpt-3.5-turbo", 
       temperature: 0.6,
       messages: [
         {
