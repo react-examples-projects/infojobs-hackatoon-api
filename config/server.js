@@ -13,9 +13,6 @@ async function startServer(app, routers) {
       res.status(404).json({ status: 404, body: "Not Found" });
       next();
     });
-    app.use(cors(corsOptions));
-    app.use(allowCrossDomain);
-
     wrapServerErrors(app);
 
     const server = app.listen(PORT, "0.0.0.0", async () => {
