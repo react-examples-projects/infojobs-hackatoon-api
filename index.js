@@ -15,14 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(helmet());
 app.use(hpp());
 app.use(rateLimit(API.RATE_LIMITS));
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
+
 startServer(app, routers);
 
 process.on("unhandledRejection", (err) => {

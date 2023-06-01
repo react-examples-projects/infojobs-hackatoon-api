@@ -13,6 +13,14 @@ async function startServer(app, routers) {
       res.status(404).json({ status: 404, body: "Not Found" });
       next();
     });
+    app.use((req, res, next) => {
+      res.header("Access-Control-Allow-Origin", "*");
+      res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+      );
+      next();
+    });
     wrapServerErrors(app);
 
     const server = app.listen(PORT, "0.0.0.0", async () => {
@@ -26,4 +34,3 @@ async function startServer(app, routers) {
 }
 
 module.exports = startServer;
- 
