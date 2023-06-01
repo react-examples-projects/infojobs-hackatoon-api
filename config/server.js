@@ -1,20 +1,7 @@
 const { PORT } = require("./");
 const { message } = require("../helpers/utils");
 const { connectDb, closeDb } = require("./connection");
-const cors = require("cors");
 const wrapServerErrors = require("../middleware/errorsHandling");
-const corsOptions = {
-  origin(origin, callback) {
-    callback(null, true);
-  },
-  credentials: true,
-};
-const allowCrossDomain = function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
-  res.header("Access-Control-Allow-Headers", "Content-Type,token");
-  next();
-};
 
 async function startServer(app, routers) {
   try {
